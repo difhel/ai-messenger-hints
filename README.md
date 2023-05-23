@@ -104,6 +104,8 @@ curl -X 'POST' \
 }
 ```
 
+## Запуск на сервере и на локалхосте
+Читайте инструкцию [тут](https://telegra.ph/Zapusk-FastAPI-proektov-na-komyutere-i-servere-05-23).
 ## Новости проекта
 Следите за новостями:
 - ВКонтакте: https://vk.com/vkgptapp

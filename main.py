@@ -9,7 +9,7 @@ tokens = {}
 
 app = FastAPI()
 
-TOKEN = open("token.txt", encoding="utf-8").read()
+TOKEN = open("token.txt", encoding="utf-8").read().strip()
 agent = AIAgent("https://api.openai.com/v1/chat/completions", TOKEN)
 
 
