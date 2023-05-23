@@ -57,6 +57,8 @@ class Message(BaseModel):
       "Подсказка2"
    ]
 }
+```
+
 При ok=false может быть возвращено поле exception с текстовым описанием ошибки.
 ```json
 {

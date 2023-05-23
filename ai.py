@@ -22,10 +22,6 @@ class AIAgent:
 
     def use(self, messages: list[AIRequestMessage]) -> dict:
         """Generate response by messages"""
-        print({
-            "model": "gpt-3.5-turbo",
-            "messages": [self.security] + messages
-        })
         if self.token is None:
             result = requests.post(self.endpoint, json={
                 "model": "gpt-3.5-turbo",
@@ -38,7 +34,6 @@ class AIAgent:
             }, timeout=30, headers={
                 "Authorization": "Bearer " + self.token
             })
-        print(result.json())
         try:
             return json.loads(result.json()["choices"][0]["message"]["content"])
         except Exception: # pylint: disable=broad-exception-caught
