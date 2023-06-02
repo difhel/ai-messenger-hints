@@ -1,4 +1,6 @@
-token.txt
+token*.txt
 .vscode
 __pycache__
 *.pyc
+*/__pycache__
+test.py

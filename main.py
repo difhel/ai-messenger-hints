@@ -1,7 +1,7 @@
 """Main"""
 from fastapi import FastAPI
-from pydantic import BaseModel # pylint: disable=no-name-in-module
-from ai import AIAgent
+from agents import OpenAIAgent
+from typings import Message
 
 
 tokens = {}
@@ -10,13 +10,8 @@ tokens = {}
 app = FastAPI()
 
 TOKEN = open("token.txt", encoding="utf-8").read().strip()
-agent = AIAgent("https://api.openai.com/v1/chat/completions", TOKEN)
-
-
-# pylint: disable-next=missing-class-docstring, too-few-public-methods
-class Message(BaseModel):
-    from_name: str
-    text: str
+PROMPT = open("prompt.txt", encoding="utf-8").read().strip()
+agent = OpenAIAgent(token=TOKEN, premessages=[{"role": "system", "message": PROMPT}])
 
 
 # pylint: disable-next=missing-function-docstring
